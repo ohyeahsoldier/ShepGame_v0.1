@@ -2,6 +2,9 @@ package Package;
 import java.util.ArrayList;
 
 public class Sheep {
+    //I want App to be able to access the LIST, and to .remove() from the list.
+    //I *could* change to private and add necesarry methods, but I dont think
+    //its necesarry. Then again, this.x doesnt need to be private either.
     public static ArrayList<Sheep> LIST = new ArrayList<Sheep>();
 
     private int x;

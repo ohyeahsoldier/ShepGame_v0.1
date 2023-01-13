@@ -1,7 +1,8 @@
 package Package;
-import java.util.Scanner;
+
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.IOException;
+import java.nio.file.Files;
 
 public class App {
     //emojis:　🐑🔥💥🌋
@@ -12,17 +13,29 @@ public class App {
         {Tile.random(),Tile.random(),Tile.random(),Tile.random(),Tile.random(),Tile.random()},
     };
 
-    public static void main(String[] args) throws Exception { //throws IOException //I dont have the slightest clue what either of these would be for, but the first one is apparently needed
+    public static void main(String[] args) throws IOException, Exception { //Needed, *apparently* *idk wat im doing*
         Sheep sheep1 = new Sheep(0,0);
         Sheep sheep2 = new Sheep(1,2);
 
-        Path path = Paths.get("/workspaces/ShepGame_v0.1/Game/Input.txt");
-        for (int i=0; i<20; i++) {
-            Scanner scanner = new Scanner(path);
-            String test = scanner.next();
-            System.out.println(test);
-            scanner.close();
-            Thread.sleep(500);
+        Path fileName = Path.of("/workspaces/ShepGame_v0.1/Game/Input.txt");
+        boolean stop = false;
+        while (!stop) {
+            String file_content = Files.readString(fileName);
+            Sheep tempShepRef = Sheep.LIST.get(0);
+            
+            if (!file_content.equals("")) {
+                switch (file_content) {
+                    case "w": tempShepRef.moveUp(1); break;
+                    case "a": tempShepRef.moveRight(-1); break;
+                    case "s": tempShepRef.moveUp(-1); break;
+                    case "d": tempShepRef.moveRight(-1); break;
+                    case "c": stop = true; System.out.println("Stopping"); break;
+                }
+                printWorld();
+            }
+
+            Files.writeString(fileName,"");
+            Thread.sleep(100); //10Hz
         }
     }
 
