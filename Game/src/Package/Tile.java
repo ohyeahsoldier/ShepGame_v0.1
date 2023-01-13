@@ -2,19 +2,25 @@ package Package;
 import java.util.Random;
 
 public enum Tile {
-    STONE(c.WHITE_BG),
-    GRASS(c.GREEN_BG),
-    LAVA(c.RED_BG)
+    STONE(c.WHITE_BG,"　"),
+    GRASS(c.GREEN_BG,"　"),
+    LAVA(c.RED_BG,"🔥")
     ;
 
     private final c color;
-    Tile(c color) {
+    private final String emoji;
+    Tile(c color, String emoji) {
         this.color = color;
+        this.emoji = emoji;
     }
 
     @Override
     public String toString() {
-        return ""+color;
+        return color+"";
+    }
+
+    public String emoji() {
+        return emoji;
     }
 
     //Because I don't want to create a new Tile[] and Random every time I call Tile.random()
