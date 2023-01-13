@@ -12,7 +12,7 @@ public class App {
         {Tile.random(),Tile.random(),Tile.random(),Tile.random(),Tile.random(),Tile.random()},
     };
 
-    public static void main(String[] args) throws Exception { //throws IOException
+    public static void main(String[] args) throws Exception { //throws IOException //I dont have the slightest clue what either of these would be for, but the first one is apparently needed
         Sheep sheep1 = new Sheep(0,0);
         Sheep sheep2 = new Sheep(1,2);
 
