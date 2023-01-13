@@ -50,7 +50,7 @@ public enum c {
     CYAN_BG_BRIGHT("\033[0;106m"),      // CYAN
     WHITE_BG_BRIGHT("\033[0;107m");     // WHITE
 
-    //Look up how enums work, this is the constructor & variable
+    //Look up what an enum is. This is the constructor and it's State.
     private final String code;
     c(String code) {
         this.code = code;
