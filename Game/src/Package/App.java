@@ -1,6 +1,7 @@
 package Package;
 public class App {
+    //emojis:　🐑🔥💥
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        
     }
 }
