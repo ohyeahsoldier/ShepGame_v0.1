@@ -24,6 +24,7 @@ public class Sheep {
      */
     public void kill() {
         LIST.remove(this);
+        this = null;
     }
 
     public void moveRight(int x) {
