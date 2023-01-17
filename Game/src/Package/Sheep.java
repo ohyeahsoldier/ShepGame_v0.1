@@ -2,9 +2,8 @@ package Package;
 import java.util.ArrayList;
 
 public class Sheep {
-    //I want App.java to access the LIST and .remove() from the list.
-    //I *could* change to private and add necesarry methods, but idk if necesarry.
-    //Then again, by that logic this.x doesnt need to be private either.
+    //I want App.java to access LIST, but I dont want App.java to modify LIST.
+    //I *could* change to private and add a .GetList() method, but idk if necesarry.
     public static ArrayList<Sheep> LIST = new ArrayList<Sheep>();
 
     private int x;
