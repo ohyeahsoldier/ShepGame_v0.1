@@ -21,9 +21,9 @@ public class App {
         System.out.printf("%sGo to %s%sInput.txt:0\n%s",c.italic,c.CYAN,c.underline,c.reset);
 
         boolean stop = false;
-        while (!stop && Sheep.LIST.size()!=0) {
+        while (!stop && Sheep.LIST().size()!=0) {
             String file_content = Files.readString(fileName);
-            Sheep tempShep = Sheep.LIST.get(0);
+            Sheep tempShep = Sheep.LIST().get(0);
             
             if (!file_content.equals("")) {//If not empty
                 switch (file_content) {
@@ -55,7 +55,7 @@ public class App {
                 Sheep shep = locateSheep(x, y);
                 if (shep!=null) { //if shep is at x,y
                     switch (refTile) {
-                        case LAVA: Sheep.LIST.remove(shep); System.out.print("💥"+c.reset); break;
+                        case LAVA: shep.kill(); System.out.print("💥"+c.reset); break;
                         default: System.out.print("🐑"+c.reset);
                     }
                 } else { //otherwise
@@ -66,13 +66,13 @@ public class App {
         }
     }
     /**
-     * Checks Sheep.LIST for a sheep at x,y
+     * Checks Sheep.LIST() for a sheep at x,y
      * @param x int
      * @param y int
      * @return Returns Sheep object if found, null if not
      */
     public static Sheep locateSheep(int x, int y) {
-        for (Sheep shep : Sheep.LIST) {
+        for (Sheep shep : Sheep.LIST()) {
             if (shep.getX()==x && shep.getY()==y)
                 return shep;
         }

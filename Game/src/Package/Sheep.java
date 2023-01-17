@@ -2,9 +2,8 @@ package Package;
 import java.util.ArrayList;
 
 public class Sheep {
-    //I want App.java to access LIST, but I dont want App.java to modify LIST.
-    //I *could* change to private and add a .GetList() method, but idk if necesarry.
-    public static ArrayList<Sheep> LIST = new ArrayList<Sheep>();
+    private static ArrayList<Sheep> LIST = new ArrayList<Sheep>();
+    public static ArrayList<Sheep> LIST() { return LIST; }
 
     private int x;
     private int y;
