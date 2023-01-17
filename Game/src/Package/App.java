@@ -18,6 +18,8 @@ public class App {
         new Sheep(1,2);
 
         Path fileName = Path.of("/workspaces/ShepGame_v0.1/Game/Input.txt");
+        System.out.printf("%sGo to %s%sInput.txt:0\n%s",c.italic,c.CYAN,c.underline,c.reset);
+
         boolean stop = false;
         while (!stop && Sheep.LIST.size()!=0) {
             String file_content = Files.readString(fileName);
@@ -43,13 +45,13 @@ public class App {
     }
 
     /**
-     * Prints the tile color bg, emojis, calculates collisions
+     * Prints the tiles, emojis, calculates collisions
      */
     public static void printWorld() {
         for (int y=0; y<World.length; y++) {
             for (int x=0; x<World[0].length; x++) {
                 Tile refTile = World[y][x];
-                System.out.print(refTile); //Prints the ansi color code
+                System.out.print(refTile); //toString() prints the ansi color code
                 Sheep shep = locateSheep(x, y);
                 if (shep!=null) { //if shep is at x,y
                     switch (refTile) {
@@ -62,7 +64,6 @@ public class App {
             }
             System.out.println();
         }
-        //System.out.println();
     }
     /**
      * Checks Sheep.LIST for a sheep at x,y
