@@ -22,7 +22,7 @@ public class Sheep {
      */
     public void kill() {
         LIST.remove(this);
-        this = null;
+        //this = null; //Not possible to set self to null
     }
 
     public void moveRight(int x) {

@@ -18,26 +18,26 @@ public class App {
         new Sheep(1,2);
 
         Path fileName = Path.of("/workspaces/ShepGame_v0.1/Game/Input.txt");
-        System.out.printf("%sGo to %s%sInput.txt:0\n%s",c.italic,c.CYAN,c.underline,c.reset);
+        System.out.printf("\n%sGo to %s%sInput.txt:0%s, WASD to move, C to stop\n",c.italic,c.CYAN,c.underline,c.reset);
 
         boolean stop = false;
         while (!stop && Sheep.LIST().size()!=0) {
             String file_content = Files.readString(fileName);
-            Sheep tempShep = Sheep.LIST().get(0);
+            Sheep currentShep = Sheep.LIST().get(0);
             
             if (!file_content.equals("")) {//If not empty
                 switch (file_content) {
-                    case "w": tempShep.moveUp(1); break;
-                    case "a": tempShep.moveRight(-1); break;
-                    case "s": tempShep.moveUp(-1); break;
-                    case "d": tempShep.moveRight(1); break;
-                    case "c": stop = true; System.out.println("Stopping"); break;
+                    case "w": currentShep.moveUp(1); break;
+                    case "a": currentShep.moveRight(-1); break;
+                    case "s": currentShep.moveUp(-1); break;
+                    case "d": currentShep.moveRight(1); break;
+                    case "c": stop = true; System.out.println("\'c\' was inputted: Stopping"); break;
                 }
                 if (!stop) {
                     printWorld();
-                    System.out.printf("x: %d  y: %d\n\n",tempShep.getX(),tempShep.getY());
+                    System.out.printf("x: %d  y: %d\n\n",currentShep.getX(),currentShep.getY());
                 }
-                Thread.sleep(100); //10Hz //trying to make vscode not desync isnt working...
+                Thread.sleep(100); //10Hz //trying to make vscode not desync but isnt working...
                 Files.writeString(fileName,"");
             }
         }
@@ -64,6 +64,7 @@ public class App {
             }
             System.out.println();
         }
+        if (Sheep.LIST().size()==0) System.out.println(c.RED_BG_BRIGHT+"All sheeps dead"+c.reset);
     }
     /**
      * Checks Sheep.LIST() for a sheep at x,y
