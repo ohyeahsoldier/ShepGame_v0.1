@@ -2,7 +2,7 @@ package Package;
 import java.util.Random;
 
 public enum Tile {
-    STONE(c.WHITE_BG,"　"),
+//    STONE(c.WHITE_BG,"　"),
     GRASS(c.GREEN_BG,"　"),
     LAVA(c.RED_BG,"🔥")
     ;
